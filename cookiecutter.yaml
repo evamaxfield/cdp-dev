@@ -1,0 +1,12 @@
+default_context:
+    municipality: "CDP Dev"
+    governing_body_type: "other"
+    municipality_slug: "cdp-dev"
+    python_municipality_slug: "cdp_dev"
+    infrastructure_slug: "cdp-jackson-dev-077"
+    maintainer_or_org_full_name: "Jackson Maxfield Brown"
+    hosting_github_username_or_org: "JacksonMaxfield"
+    hosting_github_repo_name: "cdp-dev"
+    hosting_github_url: "https://github.com/JacksonMaxfield/cdp-dev"
+    hosting_web_app_address: "https://JacksonMaxfield.github.io/cdp-dev"
+    firestore_region: "us-central"
