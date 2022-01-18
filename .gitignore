@@ -109,3 +109,6 @@ ENV/
 
 # Secrets
 .keys/
+
+# Dev Ignore
+speech-recognition-config-tests/raw.mp4
