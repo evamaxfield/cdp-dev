@@ -8,6 +8,10 @@
 
 ---
 
+## Note
+
+This is a personal development deployment of CDP I use for testing larger algorithm changes (speech-to-text, speaker annotation, backend update roll-outs, etc.). Do not use this data for anything besides referencing in PRs, Issues, Docs, etc.
+
 ## Council Data Project
 
 Council Data Project is an open-source project dedicated to providing journalists, activists, researchers, and all members of each community we serve with the tools they need to stay informed and hold their Council Members accountable.
