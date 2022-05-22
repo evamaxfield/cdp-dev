@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/cdp-dev/static/js/main.832961ec.chunk.js",
-    "main.js.map": "/cdp-dev/static/js/main.832961ec.chunk.js.map",
-    "runtime-main.js": "/cdp-dev/static/js/runtime-main.47d0cded.js",
-    "runtime-main.js.map": "/cdp-dev/static/js/runtime-main.47d0cded.js.map",
+    "main.js": "/cdp-dev/static/js/main.dd2c8b50.chunk.js",
+    "main.js.map": "/cdp-dev/static/js/main.dd2c8b50.chunk.js.map",
+    "runtime-main.js": "/cdp-dev/static/js/runtime-main.da9d889b.js",
+    "runtime-main.js.map": "/cdp-dev/static/js/runtime-main.da9d889b.js.map",
     "static/css/2.28feb4ba.chunk.css": "/cdp-dev/static/css/2.28feb4ba.chunk.css",
-    "static/js/2.369b6a52.chunk.js": "/cdp-dev/static/js/2.369b6a52.chunk.js",
-    "static/js/2.369b6a52.chunk.js.map": "/cdp-dev/static/js/2.369b6a52.chunk.js.map",
+    "static/js/2.c2524d7a.chunk.js": "/cdp-dev/static/js/2.c2524d7a.chunk.js",
+    "static/js/2.c2524d7a.chunk.js.map": "/cdp-dev/static/js/2.c2524d7a.chunk.js.map",
     "index.html": "/cdp-dev/index.html",
     "static/css/2.28feb4ba.chunk.css.map": "/cdp-dev/static/css/2.28feb4ba.chunk.css.map",
-    "static/js/2.369b6a52.chunk.js.LICENSE.txt": "/cdp-dev/static/js/2.369b6a52.chunk.js.LICENSE.txt"
+    "static/js/2.c2524d7a.chunk.js.LICENSE.txt": "/cdp-dev/static/js/2.c2524d7a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.47d0cded.js",
+    "static/js/runtime-main.da9d889b.js",
     "static/css/2.28feb4ba.chunk.css",
-    "static/js/2.369b6a52.chunk.js",
-    "static/js/main.832961ec.chunk.js"
+    "static/js/2.c2524d7a.chunk.js",
+    "static/js/main.dd2c8b50.chunk.js"
   ]
 }
