@@ -42,17 +42,6 @@ jobs:
         cd python/
         pip install .
 
-    - name: Checkout Specific cdp-backend Branch
-      uses: actions/checkout@v3
-      with:
-        repository: CouncilDataProject/cdp-backend
-        ref: feature/support-processing-m3u8-video-playlist-uris
-        path: branched-cdp-backend
-
-    - name: Install branch deps
-      run: |
-        pip install ./branched-cdp-backend[pipeline]
-
     - name: Setup gcloud
       uses: google-github-actions/setup-gcloud@v0
       with:

@@ -1,5 +1,6 @@
 default_context:
     municipality: "CDP Dev"
+    iana_timezone: "America/Los_Angeles"
     governing_body_type: "other"
     municipality_slug: "cdp-dev"
     python_municipality_slug: "cdp_dev"

@@ -4,7 +4,7 @@
 from datetime import datetime
 from typing import List
 
-from cdp_backend.pipeline import ingestion_models
+from cdp_backend.pipeline.ingestion_models import EventIngestionModel
 
 ###############################################################################
 
@@ -13,7 +13,7 @@ def get_events(
     from_dt: datetime,
     to_dt: datetime,
     **kwargs,
-) -> List[ingestion_models.EventIngestionModel]:
+) -> List[EventIngestionModel]:
     """
     Get all events for the provided timespan.
 
@@ -36,17 +36,5 @@ def get_events(
     from GitHub Actions UI.
     """
 
-    event = ingestion_models.EventIngestionModel(
-        body=ingestion_models.Body(name="Example Oakland Events", is_active=True),
-        sessions=[
-            ingestion_models.Session(
-                session_datetime=datetime.now(),
-                video_uri=(
-                    "https://archive-stream.granicus.com/OnDemand/_definst_/mp4:oakland/"
-                    "oakland_fa356edd-b6a3-4532-8118-3ce4881783f4.mp4/playlist.m3u8"
-                ),
-                session_index=0,
-            )
-        ],
-    )
-    return [event]
+    # Your implementation here
+    return []
