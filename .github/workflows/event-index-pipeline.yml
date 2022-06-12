@@ -89,6 +89,12 @@ jobs:
       with:
         python-version: 3.9
 
+    - run: |
+       echo ${{ needs.generate-index-chunks.outputs }}
+
+    - run: |
+        echo ${{ needs.generate-index-chunks.outputs.ngram-1-chunkset}}
+
     # Process
     - name: Combine Chunksets
       id: 'combine-index-chunksets'
