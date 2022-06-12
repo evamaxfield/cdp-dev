@@ -85,7 +85,7 @@ jobs:
         output=$(python -c 'import os, json; print(json.dumps(os.listdir(".")))')
         echo "::set-output name=ngram-${{ matrix.n-gram }}-chunks::$output"
 
-  combine-matrix-ngram-chunksets:
+  combine-matrix-ngram-chunks:
     needs: generate-index-chunks
     runs-on: ubuntu-latest
     outputs:
@@ -99,7 +99,7 @@ jobs:
         python-version: 3.9
 
     # Process
-    - name: Combine Chunksets
+    - name: Combine Chunks
       id: 'combine-index-chunks'
       run: |
         echo 'print(${{ needs.generate-index-chunks.outputs.ngram-1-chunks }} + ${{ needs.generate-index-chunks.outputs.ngram-2-chunks }} + ${{ needs.generate-index-chunks.outputs.ngram-3-chunks }})' >> print-combined-chunks.py
@@ -107,12 +107,12 @@ jobs:
         echo "::set-output name=combined-chunks::$output"
 
   upload-index-chunks:
-    needs: combine-matrix-ngram-chunksets
+    needs: combine-matrix-ngram-chunks
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 6
       matrix: 
-        filename: ${{ fromJson(needs.combine-matrix-ngram-chunksets.outputs.combined-chunkset) }}
+        filename: ${{ fromJson(needs.combine-matrix-ngram-chunks.outputs.all-chunks) }}
       fail-fast: false
     
     steps:
