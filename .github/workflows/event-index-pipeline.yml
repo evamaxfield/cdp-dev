@@ -22,6 +22,7 @@ jobs:
     strategy:
       matrix:
         n-gram: [1, 2, 3]
+      fail-fast: false
 
     steps:
     # Setup Runner
@@ -103,6 +104,7 @@ jobs:
       max-parallel: 6
       matrix: 
         filename: ${{ fromJson(needs.combine-matrix-ngram-chunksets.outputs.combined-chunkset) }}
+      fail-fast: false
     
     steps:
     # Setup Runner
@@ -129,6 +131,14 @@ jobs:
       run: |
         cd python/
         pip install .
+
+    - uses: actions/checkout@v2
+      with:
+        repository: 'councildataproject/cdp-backend'
+        ref: 'feature/reduce-ngram-index'
+        path: 'cdp-backend-branch'
+    - run: |
+        pip install ./cdp-backend-branch[pipeline]
 
     # Download Chunk File
     - uses: actions/download-artifact@v3
