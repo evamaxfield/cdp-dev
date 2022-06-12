@@ -24,6 +24,11 @@ jobs:
         n-gram: [1, 2, 3]
       fail-fast: false
 
+    outputs:
+      ngram-1-chunks: ${{ steps.output-index-chunks.outputs.ngram-1-chunks }}
+      ngram-2-chunks: ${{ steps.output-index-chunks.outputs.ngram-2-chunks }}
+      ngram-3-chunks: ${{ steps.output-index-chunks.outputs.ngram-3-chunks }}
+
     steps:
     # Setup Runner
     - uses: actions/checkout@v2
@@ -74,10 +79,11 @@ jobs:
         if-no-files-found: error
         retention-days: 6
     - name: Store Index Fileset to Outputs
+      id: output-index-chunks
       run: |
         cd python/index/
         output=$(python -c 'import os, json; print(json.dumps(os.listdir(".")))')
-        echo "::set-output name=ngram-${{ matrix.n-gram }}-chunkset::$output"
+        echo "::set-output name=ngram-${{ matrix.n-gram }}-chunks::$output"
 
   combine-matrix-ngram-chunksets:
     needs: generate-index-chunks
@@ -93,7 +99,7 @@ jobs:
        echo ${{ needs.generate-index-chunks.outputs }}
 
     - run: |
-        echo ${{ needs.generate-index-chunks.outputs.ngram-1-chunkset}}
+        echo ${{ needs.generate-index-chunks.outputs.ngram-1-chunks }}
 
     # Process
     - name: Combine Chunksets
