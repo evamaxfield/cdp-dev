@@ -102,7 +102,7 @@ jobs:
     - name: Combine Chunksets
       id: 'combine-index-chunks'
       run: |
-        echo 'print('${{ needs.generate-index-chunks.outputs.ngram-1-chunks }}' + '${{ needs.generate-index-chunks.outputs.ngram-2-chunks }}' + '${{ needs.generate-index-chunks.outputs.ngram-3-chunks }}')' >> print-combined-chunks.py
+        echo 'print(${{ needs.generate-index-chunks.outputs.ngram-1-chunks }} + ${{ needs.generate-index-chunks.outputs.ngram-2-chunks }} + ${{ needs.generate-index-chunks.outputs.ngram-3-chunks }})' >> print-combined-chunks.py
         output=$(python print-combined-chunks.py)
         echo "::set-output name=combined-chunks::$output"
 
