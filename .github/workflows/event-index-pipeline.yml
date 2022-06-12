@@ -88,6 +88,9 @@ jobs:
   combine-matrix-ngram-chunksets:
     needs: generate-index-chunks
     runs-on: ubuntu-latest
+    outputs:
+      all-chunks: ${{ steps.combine-index-chunks.outputs.combined-chunks }}
+
     steps:
     # Setup Runner
     - uses: actions/checkout@v2
@@ -95,19 +98,13 @@ jobs:
       with:
         python-version: 3.9
 
-    - run: |
-       echo ${{ needs.generate-index-chunks.outputs }}
-
-    - run: |
-        echo ${{ needs.generate-index-chunks.outputs.ngram-1-chunks }}
-
     # Process
     - name: Combine Chunksets
-      id: 'combine-index-chunksets'
+      id: 'combine-index-chunks'
       run: |
-        echo 'print('${{ needs.generate-index-chunks.outputs.ngram-1-chunkset }}' + '${{ needs.generate-index-chunks.outputs.ngram-2-chunkset }}' + '${{ needs.generate-index-chunks.outputs.ngram-3-chunkset }}')' >> print-combined-chunkset.py
-        output=$(python print-combined-chunkset.py)
-        echo "::set-output name=combined-chunkset::$output"
+        echo 'print('${{ needs.generate-index-chunks.outputs.ngram-1-chunks }}' + '${{ needs.generate-index-chunks.outputs.ngram-2-chunks }}' + '${{ needs.generate-index-chunks.outputs.ngram-3-chunks }}')' >> print-combined-chunks.py
+        output=$(python print-combined-chunks.py)
+        echo "::set-output name=combined-chunks::$output"
 
   upload-index-chunks:
     needs: combine-matrix-ngram-chunksets
