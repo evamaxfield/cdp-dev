@@ -69,15 +69,10 @@ jobs:
         cd python/
         run_cdp_event_index_generation event-index-config.json \
           --n_grams ${{ matrix.n-gram }} \
+          --store_remote \
           --parallel
 
-    # Storage and Outputs
-    - name: Store Index Chunks to Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        path: python/index/*
-        if-no-files-found: error
-        retention-days: 6
+    # Store generated files to step output
     - name: Store Index Fileset to Outputs
       id: output-index-chunks
       run: |
@@ -148,17 +143,11 @@ jobs:
         path: 'cdp-backend-branch'
     - run: |
         pip install ./cdp-backend-branch[pipeline]
-
-    # Download Chunk File
-    - uses: actions/download-artifact@v3
-      with:
-        name: ${{ matrix.filename }}
-        path: python/index/
     
     # Upload Index Chunk
     - name: Process Upload
       run: |
         cd python/
-        upload_cdp_event_index_chunk event-index-config.json \
-          index/${{ matrix.filename }} \
+        process_cdp_event_index_chunk event-index-config.json \
+          ${{ matrix.filename }} \
           --parallel
