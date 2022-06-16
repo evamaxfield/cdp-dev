@@ -55,14 +55,6 @@ jobs:
         cd python/
         pip install .
 
-    - uses: actions/checkout@v2
-      with:
-        repository: 'councildataproject/cdp-backend'
-        ref: 'feature/reduce-ngram-index'
-        path: 'cdp-backend-branch'
-    - run: |
-        pip install ./cdp-backend-branch[pipeline]
-
     # Index
     - name: Index Events ${{ matrix.n-gram }}-grams
       run: |
@@ -135,14 +127,6 @@ jobs:
       run: |
         cd python/
         pip install .
-
-    - uses: actions/checkout@v2
-      with:
-        repository: 'councildataproject/cdp-backend'
-        ref: 'feature/reduce-ngram-index'
-        path: 'cdp-backend-branch'
-    - run: |
-        pip install ./cdp-backend-branch[pipeline]
     
     # Upload Index Chunk
     - name: Process Upload
