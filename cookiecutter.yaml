@@ -1,0 +1,16 @@
+default_context:
+    municipality: "cdp-dev"
+    iana_timezone: "America/Los_Angeles"
+    governing_body_type: "city council"
+    municipality_slug: "cdp-dev"
+    python_municipality_slug: "cdp_dev"
+    infrastructure_slug: "cdp-cdp-dev-ocvyjncw"
+    maintainer_or_org_full_name: "Council Data Project Contributors"
+    hosting_github_username_or_org: "evamaxfield"
+    hosting_github_repo_name: "cdp-dev"
+    hosting_github_url: "https://github.com/evamaxfield/cdp-dev"
+    hosting_web_app_address: "https://evamaxfield.github.io/cdp-dev"
+    firestore_region: "us-central"
+    event_gather_timedelta_lookback_days: 2
+    event_gather_cron: "35 6 * * *"
+    enable_clipping: "true"
