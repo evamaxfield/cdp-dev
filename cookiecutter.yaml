@@ -14,3 +14,4 @@ default_context:
     event_gather_timedelta_lookback_days: 2
     event_gather_cron: "35 6 * * *"
     enable_clipping: "true"
+    speech_to_text_model_version: "medium"
